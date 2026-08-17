@@ -22,12 +22,12 @@ public class media {
         }
 
         System.out.print("Digite os " + n + " elementos de y: ");
-        for (int i = 0; i < m; i++) {
+        for (int i = 0; i < n; i++) {
             y[i] = input.nextInt();
         }
         if (m > n) {
-            maior = x.length;
-            menor = y.length;
+            maior = m;
+            menor = n;
 
             for (int i = 0; i < maior; i++) {
                 for (int j = 0; j < menor; j++) {
@@ -38,17 +38,18 @@ public class media {
             }
 
             z = new int[uniao];
+            int percorre = 0;
             for (int i = 0; i < maior; i++) {
                 for (int j = 0; j < menor; j++) {
                     if (x[i] == y[j]) {
-                        z[uniao] = x[i];
+                        z[percorre] = x[i];
                     }
                 }
             }
 
         } else {
-            maior = y.length;
-            menor = x.length;
+            maior = n;
+            menor = m;
 
             for (int i = 0; i < maior; i++) {
                 for (int j = 0; j < menor; j++) {
@@ -59,13 +60,18 @@ public class media {
             }
 
             z = new int[uniao];
+            int percorre = 0;
             for (int i = 0; i < maior; i++) {
                 for (int j = 0; j < menor; j++) {
                     if (y[i] == x[j]) {
-                        z[uniao] = y[i];
+                        z[percorre] = y[i];
+                        percorre++;
                     }
                 }
             }
-        }
+        };
+
+        for (int i = 0; i < z.length; i++)
+            System.out.print(z[i] + " ");
     }
 }
